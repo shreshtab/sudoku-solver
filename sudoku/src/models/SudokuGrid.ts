@@ -6,7 +6,7 @@ export interface GridComponentProps {
   grid: Number[][]
 };
 
-export interface GridState {
+export interface IGridState {
   grid: SudokuBoard,
   current: CurrentBox,
   solving: Boolean,
