@@ -1,10 +1,8 @@
 import React from 'react';
 
-interface GridProps {
-  grid: Number[][]
-};
+import { GridComponentProps } from '../models/SudokuGrid';
 
-const SudokuGrid: React.FC<GridProps> = ({ grid }) => {
+const SudokuGrid: React.FC<GridComponentProps> = ({ grid }) => {
   return (
     <div className='container'>
       <table>
