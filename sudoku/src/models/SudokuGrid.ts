@@ -3,7 +3,7 @@ export type CurrentBox = [number, number];
 
 
 export interface GridComponentProps {
-  grid: number[][]
+  grid?: number[][]
 };
 
 export interface IGridState {
@@ -18,7 +18,7 @@ export enum GridActionTypes {
   SET_GRID = 'SET_GRID',
   SET_CURRENT_BOX = 'SET_CURRENT_BOX',
   UPDATE_SOLVE_STATUS = 'UPDATE_SOLVE_STATUS',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
 }
 
 export interface ISetGridAction {

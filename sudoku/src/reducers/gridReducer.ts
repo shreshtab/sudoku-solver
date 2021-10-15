@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { SudokuBoard, IGridState, GridActionTypes } from '../models/SudokuGrid';
+import { SudokuBoard, IGridState, GridActionTypes, GridActions } from '../models/SudokuGrid';
 
 
 export const UPDATE_GRID = 'UPDATE_GRID'
@@ -17,22 +17,41 @@ const board: SudokuBoard = [ [0, 4, 3, 0, 8, 0, 2, 5, 0],
 
 const initialGridState: IGridState = {
   grid: board,
-  current: [0,0],
+  current: [-1,-1],
   solving: false,
   solveCompleted: false,
   errorMessage: ''
 }
 
-export const gridReducer: Reducer<IGridState, any> = (
+export const gridReducer: Reducer<IGridState, GridActions> = (
   state = initialGridState,
   action
 ) => {
   switch (action.type) {
-    case UPDATE_GRID: {
+    case GridActionTypes.SET_GRID: {
       return {
         ...state,
-        grid: action.payload
-      }
+        grid: action.grid
+      };
+    }
+    case GridActionTypes.SET_CURRENT_BOX: {
+      return {
+        ...state,
+        current: action.current
+      };
+    }
+    case GridActionTypes.UPDATE_SOLVE_STATUS: {
+      return {
+        ...state,
+        solving: action.solving,
+        solveCompleted: action.solveCompleted
+      };
+    }
+    case GridActionTypes.ERROR: {
+      return {
+        ...state,
+        errorMessage: action.errorMessage
+      };
     }
     default:
       return state
