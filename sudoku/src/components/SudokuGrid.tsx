@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { GridComponentProps, SudokuBoard } from '../models/SudokuGrid';
 import { IAppState } from '../models';
 
 const SudokuGrid: React.FC<GridComponentProps> = () => {
   const [grid, setGrid] = useState<SudokuBoard | null>(null);
+  // const [originalGrid, setOriginalGrid] = useState<SudokuBoard | null>(useSelector((state: IAppState) => state.gridState.originalGrid));
 
   const sudokuGrid = useSelector((state: IAppState) => state.gridState.grid);
   const [crow, ccol] = useSelector((state: IAppState) => state.gridState.current);
@@ -18,7 +19,7 @@ const SudokuGrid: React.FC<GridComponentProps> = () => {
     const current = cRow >= 0 && cCol>= 0 && row === cRow && col === cCol;
     return (
       <div className={`cell ${current? 'current' : ''}`}>
-        {value}
+        {value > 0 ? value : ''}
       </div>
     )
   }
@@ -29,12 +30,11 @@ const SudokuGrid: React.FC<GridComponentProps> = () => {
         <tbody>
           {grid && grid.length > 0 ? grid.map((row, rowIdx) => {
           return (
-          <tr>
+          <tr key={`${rowIdx}`}>
             {row.map((val, colIdx) => {
               return (
-                <td>
+                <td key={`${rowIdx}-${colIdx}`}>
                   {createCell(val, rowIdx, colIdx, crow, ccol)}
-
                   {/* <div className={`cell ${crow === rowIdx && ccol === colIdx ? 'current' : ''}`}>
                     {val}
                   </div>                     */}

@@ -16,7 +16,8 @@ const board: SudokuBoard = [ [0, 4, 3, 0, 8, 0, 2, 5, 0],
 
 
 const initialGridState: IGridState = {
-  grid: board,
+  originalGrid: JSON.parse(JSON.stringify(board)),
+  grid: board.slice(),
   current: [-1,-1],
   solving: false,
   solveCompleted: false,
@@ -31,8 +32,23 @@ export const gridReducer: Reducer<IGridState, GridActions> = (
     case GridActionTypes.SET_GRID: {
       return {
         ...state,
-        grid: action.grid
+        originalGrid: action.grid.slice(),
+        grid: action.grid.slice()
       };
+    }
+    case GridActionTypes.UPDATE_BOX: {
+      let newGrid = [...state.grid];
+      const [rowIdx, colIdx] = state.current;
+      let updatedGrid = Object.assign([...newGrid], {
+        [rowIdx]: Object.assign([...newGrid[rowIdx]], {
+          [colIdx]: action.currentVal
+        })
+      })
+      // newGrid[rowIdx][colIdx] = action.currentVal;
+      return {
+        ...state,
+        grid: updatedGrid
+      }
     }
     case GridActionTypes.SET_CURRENT_BOX: {
       return {

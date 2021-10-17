@@ -7,6 +7,7 @@ export interface GridComponentProps {
 };
 
 export interface IGridState {
+  originalGrid: SudokuBoard,
   grid: SudokuBoard,
   current: CurrentBox,
   solving: boolean,
@@ -16,6 +17,7 @@ export interface IGridState {
 
 export enum GridActionTypes {
   SET_GRID = 'SET_GRID',
+  UPDATE_BOX = 'UPDATE_BOX',
   SET_CURRENT_BOX = 'SET_CURRENT_BOX',
   UPDATE_SOLVE_STATUS = 'UPDATE_SOLVE_STATUS',
   ERROR = 'ERROR',
@@ -24,6 +26,11 @@ export enum GridActionTypes {
 export interface ISetGridAction {
   type: GridActionTypes.SET_GRID;
   grid: SudokuBoard;
+}
+
+export interface IUpdateBoxAction {
+  type: GridActionTypes.UPDATE_BOX;
+  currentVal: number; 
 }
 
 export interface ISetCurrentBoxAction {
@@ -42,5 +49,7 @@ export interface IErrorAction {
   errorMessage: string;
 }
 
-export type GridActions = ISetGridAction | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction;
+
+
+export type GridActions = ISetGridAction | IUpdateBoxAction | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction;
 

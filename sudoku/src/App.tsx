@@ -1,9 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import './App.css';
 import SudokuGrid from './components/SudokuGrid'
-import { IAppState } from './models';
 import { SolveGrid } from './actions/gridActions';
 
 // const board : SudokuBoard = [ [0, 4, 3, 0, 8, 0, 2, 5, 0],
@@ -16,15 +14,13 @@ import { SolveGrid } from './actions/gridActions';
 //                 [0, 0, 0, 0, 0, 0, 0, 0, 5],
 //                 [0, 3, 4, 0, 9, 0, 7, 1, 0] ];
 
-const App = () => {
+const App = () => { 
 
-  const sudokuGrid = useSelector((state: IAppState) => state.gridState.grid)
-  
   const dispatch = useDispatch();
-
+  
   const solveGrid = () => {
     console.log("dispatching")
-    dispatch(SolveGrid([...sudokuGrid]));
+    dispatch(SolveGrid());
   };
 
   return (
