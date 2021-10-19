@@ -19,7 +19,7 @@ const SudokuGrid: React.FC<GridComponentProps> = () => {
     const current = cRow >= 0 && cCol>= 0 && row === cRow && col === cCol;
     return (
       <div className={`cell ${current? 'current' : ''}`}>
-        {value > 0 ? value : ''}
+        {value >= 0 ? value : ''}
       </div>
     )
   }

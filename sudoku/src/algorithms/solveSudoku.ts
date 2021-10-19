@@ -13,7 +13,7 @@ export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 						// If valid, assign to board[i][j] and dispatch
 						board[i][j] = k;
 						dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: [i, j], currentVal: k})
-						await sleep(0)
+						await sleep(300)
 						// if solveSudoku, return true
 						if (await solveSudoku(board, dispatch)) {
 							return true
