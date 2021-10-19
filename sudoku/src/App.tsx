@@ -1,8 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import SudokuGrid from './components/SudokuGrid'
-import { SolveGrid } from './actions/gridActions';
+import { SolveGrid, ResetGrid } from './actions/gridActions';
+import { IAppState } from './models';
 
 // const board : SudokuBoard = [ [0, 4, 3, 0, 8, 0, 2, 5, 0],
 //                 [6, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -14,20 +15,26 @@ import { SolveGrid } from './actions/gridActions';
 //                 [0, 0, 0, 0, 0, 0, 0, 0, 5],
 //                 [0, 3, 4, 0, 9, 0, 7, 1, 0] ];
 
-const App = () => { 
-
+const App = () => {
   const dispatch = useDispatch();
+  const solving = useSelector((state: IAppState) => state.gridState.solving);
+  const solveCompleted = useSelector((state: IAppState) => state.gridState.solveCompleted);
   
   const solveGrid = () => {
-    console.log("dispatching")
     dispatch(SolveGrid());
   };
+
+  const resetGrid = () => {
+    dispatch(ResetGrid());
+  }
 
   return (
     <div className="App">
       Hello from the App component!
       <SudokuGrid />
-      <button type="button" onClick={() => solveGrid()}>Solve Grid</button>
+      <button type="button" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve Grid</button>
+      <br />
+      <button type="button" onClick={() => resetGrid()} disabled={solving}>Reset Grid</button>
     </div>
   );
 }

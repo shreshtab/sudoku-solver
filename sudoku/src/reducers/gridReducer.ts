@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import { SudokuBoard, IGridState, GridActionTypes, GridActions } from '../models/SudokuGrid';
-
+import { deepCopyGrid, deepCopyAndReplaceAtIndex } from '../utils/utils';
 
 export const UPDATE_GRID = 'UPDATE_GRID'
 
@@ -14,10 +14,11 @@ const board: SudokuBoard = [ [0, 4, 3, 0, 8, 0, 2, 5, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 5],
                 [0, 3, 4, 0, 9, 0, 7, 1, 0] ];
 
+// const deepCopyArray = ()
 
 const initialGridState: IGridState = {
-  originalGrid: JSON.parse(JSON.stringify(board)),
-  grid: board.slice(),
+  originalGrid: deepCopyGrid(board),
+  grid: deepCopyGrid(board),
   current: [-1,-1],
   solving: false,
   solveCompleted: false,
@@ -32,22 +33,16 @@ export const gridReducer: Reducer<IGridState, GridActions> = (
     case GridActionTypes.SET_GRID: {
       return {
         ...state,
-        originalGrid: action.grid.slice(),
-        grid: action.grid.slice()
+        originalGrid: deepCopyGrid(action.grid),
+        grid: deepCopyGrid(action.grid)
       };
     }
-    case GridActionTypes.UPDATE_BOX: {
-      let newGrid = [...state.grid];
-      const [rowIdx, colIdx] = state.current;
-      let updatedGrid = Object.assign([...newGrid], {
-        [rowIdx]: Object.assign([...newGrid[rowIdx]], {
-          [colIdx]: action.currentVal
-        })
-      })
-      // newGrid[rowIdx][colIdx] = action.currentVal;
+    case GridActionTypes.SET_CURRENT_BOX_AND_UPDATE: {
+      const [rowIdx, colIdx] = action.current;
       return {
         ...state,
-        grid: updatedGrid
+        current: action.current,
+        grid: deepCopyAndReplaceAtIndex(state.grid, rowIdx, colIdx, action.currentVal)
       }
     }
     case GridActionTypes.SET_CURRENT_BOX: {
