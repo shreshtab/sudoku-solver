@@ -1,5 +1,5 @@
-import { SudokuBoard } from "../models/SudokuGrid";
 import { Dispatch } from 'redux';
+import { SudokuBoard } from "../models/SudokuGrid";
 import { GridActionTypes } from "../models/SudokuGrid";
 // import { store } from '../index';
 
@@ -13,7 +13,7 @@ export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 						// If valid, assign to board[i][j] and dispatch
 						board[i][j] = k;
 						dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: [i, j], currentVal: k})
-						await sleep(300)
+						await sleep(50)
 						// if solveSudoku, return true
 						if (await solveSudoku(board, dispatch)) {
 							return true
