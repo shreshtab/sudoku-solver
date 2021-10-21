@@ -6,54 +6,49 @@
 
 .container {
   max-width: 700px;
-  min-width: 270px;
+  min-width: 200px;
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 table {
-  margin: 30px 0;
-  width: 70%;
+  margin: 10px auto;
+  /* width: 70%; */
   border: 3px solid gray;
   border-collapse: collapse;
 }
 
 .cell {
   border: 1px solid lightgray;
-  padding: 12px 16px;
+  padding-top: max(min(3vw, 1.05rem), 0.3em);
+  padding-bottom: max(min(3vw, 1.05rem), 0.3em);
+  padding-left: max(min(4vw, 1.4rem), 0.4em);
+  padding-right: max(min(4vw, 1.4rem), 0.4em);
   text-align: center;
   color: black;
+  font-size: max(min(3.5vw, 1.4rem), 0.4em);
   background: rgb(238, 237, 237);
 }
 
 .cell.pendingsolve {
   border: 1px solid lightgray;
-  padding: 12px 16px;
-  text-align: center;
   color: white;
   background: rgb(255, 255, 255);
 }
 
 .cell.solving {
   border: 1px solid lightgray;
-  padding: 12px 16px;
-  text-align: center;
   color: rgb(0, 0, 0);
   background: rgb(248, 222, 188);
 }
 
 .cell.solved {
   border: 1px solid lightgray;
-  padding: 12px 16px;
-  text-align: center;
   color: rgb(2, 73, 2);
   background: rgb(207, 255, 207);
 }
 
 .cell.current {
   border: 1px solid rgb(0, 0, 0);
-  padding: 12px 16px;
-  text-align: center;
   background: rgb(252, 206, 147);
 }
 
