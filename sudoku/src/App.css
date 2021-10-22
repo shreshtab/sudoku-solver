@@ -19,13 +19,13 @@ table {
 
 .cell {
   border: 1px solid lightgray;
-  padding-top: max(min(3vw, 1.05rem), 0.3em);
-  padding-bottom: max(min(3vw, 1.05rem), 0.3em);
-  padding-left: max(min(4vw, 1.4rem), 0.4em);
-  padding-right: max(min(4vw, 1.4rem), 0.4em);
+  padding-top: max(min(3vw, 1.05rem), 7.5px);
+  padding-bottom: max(min(3vw, 1.05rem), 7.5px);
+  padding-left: max(min(4vw, 1.4rem), 10px);
+  padding-right: max(min(4vw, 1.4rem), 10px);
   text-align: center;
   color: black;
-  font-size: max(min(3.5vw, 1.4rem), 0.4em);
+  font-size: max(min(3.5vw, 1.4rem), 8px);
   background: rgb(238, 237, 237);
 }
 
