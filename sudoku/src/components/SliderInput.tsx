@@ -1,10 +1,11 @@
 import React from 'react';
+import 'rc-slider/assets/index.css';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 
-const SliderWithTooltip = createSliderWithTooltip(Slider);
+const CreateSliderWithTooltip = createSliderWithTooltip(Slider);
 
 const msFormatter = (v: any) => {
-  return `${v} ms`
+  return `${v}ms`
 }
 
 const consoleLog = (v: any) => {
@@ -14,12 +15,15 @@ const consoleLog = (v: any) => {
 
 const SliderInput: React.FC<any> = () => {
   return (
-    <div>
+    <div className='sliderparent'>
       Slider with tooltip and custom tip msFormatter
-      <SliderWithTooltip
+      <CreateSliderWithTooltip
+        min={1}
+        max={500}
+        className='slider'
         tipFormatter={msFormatter}
-        tipProps={{ placement: 'top', prefixCls: 'cell' }}
-      />
+        onChange={consoleLog}
+       />
     </div>
   )
 }
