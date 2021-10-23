@@ -4,6 +4,7 @@ import './App.css';
 import SudokuGrid from './components/SudokuGrid'
 import { SolveGrid, ResetGrid } from './actions/gridActions';
 import { IAppState } from './models';
+import SliderInput from './components/SliderInput';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
       <button type="button" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve Grid</button>
       <br />
       <button type="button" onClick={() => resetGrid()} disabled={solving}>Reset Grid</button>
+      <SliderInput />
     </div>
   );
 }
