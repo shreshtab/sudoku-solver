@@ -5,12 +5,12 @@ import Slider, { createSliderWithTooltip } from 'rc-slider';
 const CreateSliderWithTooltip = createSliderWithTooltip(Slider);
 
 const marks = {
-  1: '1ms',
-  100: '100ms',
-  200: '200ms',
-  300: '300ms',
-  400: '400ms',
-  500: '500ms'
+  1: '500ms',
+  101: '400ms',
+  201: '300ms',
+  301: '200ms',
+  401: '100ms',
+  500: '1ms'
 };
 
 const msFormatter = (v: any) => {
@@ -31,6 +31,7 @@ const SliderInput: React.FC<any> = () => {
         max={500}
         defaultValue={251}
         railStyle={{ backgroundColor: 'rgb(252, 206, 147)', height: 5 }}
+        dotStyle={{ borderColor: 'purple', backgroundColor: 'green', border: '1px solid black' }}
         handleStyle={{
           borderColor: 'red',
           height: 14,
