@@ -1,8 +1,8 @@
 import { ActionCreator, Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
-import { ISetGridAction, ISetCurrentBoxAndUpdate, GridActionTypes } from '../models/SudokuGrid';
+import { ISetGridAction, ISetCurrentBoxAndUpdate, ISetCurrentBoxAction, GridActionTypes } from '../models/SudokuGrid';
 import { IAppState } from "../models";
-import { SudokuBoard } from "../models/SudokuGrid";
+import { SudokuBoard, CurrentBox } from "../models/SudokuGrid";
 import { solveSudoku } from "../algorithms/solveSudoku";
 import { getPuzzle } from "../utils/utils";
 
@@ -31,6 +31,16 @@ export const ResetGrid: ActionCreator<ThunkAction<Promise<any>, IAppState, null,
       dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: false, solveCompleted: false});
     } catch (err) {
         dispatch({type: GridActionTypes.ERROR, errorMessage: `Unable to reset puzzle. Error: ${err}`});
+    }
+  }
+}
+
+export const SetAndUpdateCurrentBox: ActionCreator<ThunkAction<Promise<any>, IAppState, null, ISetCurrentBoxAction>> = (currentBox: CurrentBox, boxVal: number) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: currentBox, currentVal: boxVal})
+    } catch (err) {
+      dispatch({type: GridActionTypes.ERROR, errorMessage: `Unable to update grid. Error: ${err}`});
     }
   }
 }
