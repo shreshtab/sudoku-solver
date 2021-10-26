@@ -22,7 +22,8 @@ const initialGridState: IGridState = {
   current: [-1,-1],
   solving: false,
   solveCompleted: false,
-  errorMessage: ''
+  errorMessage: '',
+  speed: 250
 }
 
 export const gridReducer: Reducer<IGridState, GridActions> = (
@@ -43,6 +44,12 @@ export const gridReducer: Reducer<IGridState, GridActions> = (
         ...state,
         current: action.current,
         grid: deepCopyAndReplaceAtIndex(state.grid, rowIdx, colIdx, action.currentVal)
+      }
+    }
+    case GridActionTypes.SET_CURRENT_SPEED: {
+      return {
+        ...state,
+        speed: action.speed
       }
     }
     case GridActionTypes.SET_CURRENT_BOX: {

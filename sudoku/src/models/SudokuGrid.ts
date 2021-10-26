@@ -12,7 +12,8 @@ export interface IGridState {
   current: CurrentBox,
   solving: boolean,
   solveCompleted: boolean,
-  errorMessage: string
+  errorMessage: string,
+  speed: number
 }
 
 export enum GridActionTypes {
@@ -20,7 +21,8 @@ export enum GridActionTypes {
   SET_CURRENT_BOX = 'SET_CURRENT_BOX',
   UPDATE_SOLVE_STATUS = 'UPDATE_SOLVE_STATUS',
   ERROR = 'ERROR',
-  SET_CURRENT_BOX_AND_UPDATE = 'SET_CURRENT_BOX_AND_UPDATE'
+  SET_CURRENT_BOX_AND_UPDATE = 'SET_CURRENT_BOX_AND_UPDATE',
+  SET_CURRENT_SPEED = 'SET_CURRENT_SPEED'
 }
 
 export interface ISetGridAction {
@@ -31,6 +33,11 @@ export interface ISetGridAction {
 export interface ISetCurrentBoxAction {
   type: GridActionTypes.SET_CURRENT_BOX;
   current: CurrentBox;
+}
+
+export interface ISetCurrentSpeed {
+  type: GridActionTypes.SET_CURRENT_SPEED;
+  speed: number;
 }
 
 export interface ISetSolveStatus {
@@ -53,5 +60,5 @@ export interface IErrorAction {
 
 
 
-export type GridActions = ISetGridAction | ISetCurrentBoxAndUpdate | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction;
+export type GridActions = ISetGridAction | ISetCurrentBoxAndUpdate | ISetCurrentSpeed | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction;
 

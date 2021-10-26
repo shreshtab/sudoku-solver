@@ -18,12 +18,14 @@ table {
 }
 
 .sliderparent {
-  width: 30%;
+  max-width: 30%;
   margin: 5px;
+  min-width: 180px;
 }
 
 .slider {
   margin-left: 50px;
+  touch-action: none;
 }
 
 .cell {

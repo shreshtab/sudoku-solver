@@ -1,6 +1,9 @@
 import React from 'react';
 import 'rc-slider/assets/index.css';
+import { useDispatch } from 'react-redux';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
+
+import { GridActionTypes } from '../models/SudokuGrid';
 
 const CreateSliderWithTooltip = createSliderWithTooltip(Slider);
 
@@ -13,16 +16,22 @@ const marks = {
   500: '1ms'
 };
 
-const msFormatter = (v: any) => {
-  return `${501 - v}ms`
-}
 
-const consoleLog = (v: any) => {
-  console.log(v)
-  return
-}
 
 const SliderInput: React.FC<any> = () => {
+
+  const dispatch = useDispatch();
+  
+  const msFormatter = (v: any) => {
+    return `${501 - v}ms`
+  }
+  
+  const updateSpeed = (v: number) => {
+    dispatch({type: GridActionTypes.SET_CURRENT_SPEED, speed: 501 - v})
+    return
+  }
+
+
   return (
     <div className='sliderparent'>
       Slider with tooltip and custom tip msFormatter
@@ -44,7 +53,7 @@ const SliderInput: React.FC<any> = () => {
         included={false}
         marks={marks}
         tipFormatter={msFormatter}
-        onChange={consoleLog}
+        onChange={updateSpeed}
        />
     </div>
   )

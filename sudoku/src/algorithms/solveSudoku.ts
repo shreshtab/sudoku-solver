@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
 import { SudokuBoard } from "../models/SudokuGrid";
 import { GridActionTypes } from "../models/SudokuGrid";
-import { SetAndUpdateCurrentBox } from '../actions/gridActions';
-// import { store } from '../index';
+import { store } from '../index';
 
 export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
+	// console.log(store.getState().gridState.speed)
 	for (let i = 0; i < board.length; i++) {
 		for (let j = 0; j < board[0].length; j++) {
 			if (board[i][j] === 0) {
@@ -14,8 +14,9 @@ export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 						// If valid, assign to board[i][j] and dispatch
 						board[i][j] = k;
 						// let current = [i,j]
-						dispatch(SetAndUpdateCurrentBox([i, j], k));
-						await sleep(50)
+						// Get wait time from store
+						dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: [i, j], currentVal: k})
+						await sleep(store.getState().gridState.speed)
 						// if solveSudoku, return true
 						if (await solveSudoku(board, dispatch)) {
 							return true
