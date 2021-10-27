@@ -23,6 +23,7 @@ As someone who enjoyed doing Sudoku puzzles growing up, I was intrigued on how t
 - Speed Control
 
 ### Backlog
+- Unit Tests
 - Overall Styling
 - Flatten Sudoku Grid State
 - Sudoku Grid Generator
