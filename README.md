@@ -12,3 +12,17 @@ One month later, I'm picking up this project again. The algorithm is done and so
 ### 9/6/21
 
 As someone who enjoyed doing Sudoku puzzles growing up, I was intrigued on how to solve a Sudoku puzzle via code. I decided to create this project to deepen my own understanding of recursion and backtracking algorithms and to hone my front-end skills.
+
+## Features
+
+### Completed
+- Grid Component
+- Redux - Actions, Reducers, etc.
+- Solve Visualizer
+- Puzzles Setup
+- Speed Control
+
+### Backlog
+- Overall Styling
+- Flatten Sudoku Grid State
+- Sudoku Grid Generator
