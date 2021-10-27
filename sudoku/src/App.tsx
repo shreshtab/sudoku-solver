@@ -24,13 +24,26 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      Hello from the App component!
-      <SudokuGrid />
-      <button type="button" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve Grid</button>
-      <br />
-      <button type="button" onClick={() => resetGrid()} disabled={solving}>Reset Grid</button>
-      <SliderInput />
+    <div className="app-container">
+      <div>
+        <h1 className='title'>Sudoku Solver</h1>
+      </div>
+
+      <div className='container'>
+        <div className="row">
+          <div className="col-md-8">
+            <SudokuGrid />
+          </div>
+          <div className="col-md-4">
+            <button type="button" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve Grid</button>
+            <br />
+            <button type="button" onClick={() => resetGrid()} disabled={solving}>Reset Grid</button>
+            <SliderInput />    
+          </div>
+        </div>
+      </div>
+      
+
     </div>
   );
 }

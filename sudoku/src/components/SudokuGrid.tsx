@@ -28,7 +28,7 @@ const SudokuGrid: React.FC<GridComponentProps> = () => {
   }
 
   return (
-    <div className='container'>
+    <div className='grid-container'>
       <table>
         <tbody>
           {sudokuGrid && sudokuGrid.length > 0 ? sudokuGrid.map((row, rowIdx) => {

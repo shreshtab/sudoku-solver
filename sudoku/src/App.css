@@ -4,27 +4,35 @@
   padding: 0;
 }
 
-.container {
-  max-width: 700px;
-  min-width: 200px;
+.app-container {
+  max-width: 720px;
   margin: 0 auto;
 }
 
-table {
+.title {
+  text-align: center;
+}
+
+.grid-container {
+  max-width: 700px;
+  min-width: 200px;
   margin: 10px auto;
+}
+
+table {
+  margin: 0 auto;
   /* width: 70%; */
   border: 3px solid gray;
   border-collapse: collapse;
 }
 
 .sliderparent {
-  max-width: 30%;
-  margin: 5px;
+  /* max-width: 30%; */
+  /* margin: 5px; */
   min-width: 180px;
 }
 
 .slider {
-  margin-left: 50px;
   touch-action: none;
 }
 
