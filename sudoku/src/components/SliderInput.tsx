@@ -33,8 +33,7 @@ const SliderInput: React.FC<any> = () => {
 
 
   return (
-    <div className='sliderparent'>
-      Slider with tooltip and custom tip msFormatter
+    <div>
       <CreateSliderWithTooltip
         min={1}
         max={500}
