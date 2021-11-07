@@ -26,19 +26,34 @@ const App = () => {
   return (
     <div className="app-container">
       <div>
-        <h1 className='title'>Sudoku Solver</h1>
+        <h1 className='title'>Sudoku Solver Visualizer</h1>
       </div>
 
       <div className='container'>
-        <div className="row">
+        <div className="row justify-content-center align-items-center">
           <div className="col-md-8">
             <SudokuGrid />
           </div>
           <div className="col-md-4">
-            <button type="button" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve Grid</button>
-            <br />
-            <button type="button" onClick={() => resetGrid()} disabled={solving}>Reset Grid</button>
-            <SliderInput />    
+            <div className="control-panel">
+              <div className="row justify-content-evenly">
+                <div className="solve-button col-4 button">
+                  <button type="button" className="btn btn-primary" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve</button>
+                </div>
+                <div className="reset-button col-4 button">
+                  <button type="button" className="btn btn-success" onClick={() => resetGrid()} disabled={solving}>Reset</button>
+                </div>
+              </div>
+              <br />
+              <div className="row justify-content-center">
+                <div className='slider-parent col-12'>
+                  <SliderInput />
+                </div>
+                <div className='legend col-12'>
+                  <strong>Speed</strong> (ms)
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -4,9 +4,15 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(234, 245, 233);
+}
+
 .app-container {
   max-width: 720px;
   margin: 0 auto;
+  /* margin-right: auto; */
 }
 
 .title {
@@ -26,10 +32,26 @@ table {
   border-collapse: collapse;
 }
 
-.sliderparent {
-  /* max-width: 30%; */
-  /* margin: 5px; */
-  min-width: 180px;
+.control-panel {
+  max-width: 400px;
+  min-width: 230px;
+  margin: 10px auto;
+}
+
+.legend {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-parent {
+  max-width: 230px;
+  min-width: 200px;
 }
 
 .slider {
@@ -38,10 +60,10 @@ table {
 
 .cell {
   border: 1px solid lightgray;
-  padding-top: max(min(2.4vw, 0.9rem), 7.5px);
-  padding-bottom: max(min(3.4vw, 0.9rem), 7.5px);
-  padding-left: max(min(3.2vw, 1.2rem), 10px);
-  padding-right: max(min(3.2vw, 1.2rem), 10px);
+  padding-top: max(min(2.4vw, 0.9rem), 6.75px);
+  padding-bottom: max(min(3.4vw, 0.9rem), 6.75px);
+  padding-left: max(min(3.2vw, 1.2rem), 9px);
+  padding-right: max(min(3.2vw, 1.2rem), 9px);
   text-align: center;
   color: black;
   font-size: max(min(3vw, 1rem), 8px);
@@ -57,13 +79,14 @@ table {
 .cell.solving {
   border: 1px solid lightgray;
   color: rgb(0, 0, 0);
+  /* background: rgb(255, 255, 255); */
   background: rgb(248, 222, 188);
 }
 
 .cell.solved {
   border: 1px solid lightgray;
   color: rgb(2, 73, 2);
-  background: rgb(207, 255, 207);
+  background: rgb(172, 247, 172);
 }
 
 .cell.current {
