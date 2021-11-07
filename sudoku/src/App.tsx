@@ -26,11 +26,11 @@ const App = () => {
   return (
     <div className="app-container">
       <div>
-        <h1 className='title'>Sudoku Solver</h1>
+        <h1 className='title'>Sudoku Solver Visualizer</h1>
       </div>
 
       <div className='container'>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center align-items-center">
           <div className="col-md-8">
             <SudokuGrid />
           </div>
@@ -46,8 +46,11 @@ const App = () => {
               </div>
               <br />
               <div className="row justify-content-center">
-                <div className='slider-parent col-10'>
+                <div className='slider-parent col-12'>
                   <SliderInput />
+                </div>
+                <div className='legend col-12'>
+                  <strong>Speed</strong> (ms)
                 </div>
               </div>
             </div>

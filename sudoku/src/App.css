@@ -4,10 +4,15 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(234, 245, 233);
+}
+
 .app-container {
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  /* margin-right: auto; */
 }
 
 .title {
@@ -28,9 +33,14 @@ table {
 }
 
 .control-panel {
-  max-width: 360px;
+  max-width: 400px;
   min-width: 230px;
   margin: 10px auto;
+}
+
+.legend {
+  padding-top: 20px;
+  text-align: center;
 }
 
 .button {
@@ -69,13 +79,14 @@ table {
 .cell.solving {
   border: 1px solid lightgray;
   color: rgb(0, 0, 0);
+  /* background: rgb(255, 255, 255); */
   background: rgb(248, 222, 188);
 }
 
 .cell.solved {
   border: 1px solid lightgray;
   color: rgb(2, 73, 2);
-  background: rgb(207, 255, 207);
+  background: rgb(172, 247, 172);
 }
 
 .cell.current {
