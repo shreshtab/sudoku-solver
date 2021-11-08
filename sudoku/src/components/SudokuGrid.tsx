@@ -3,29 +3,13 @@ import { useSelector } from 'react-redux';
 
 import { GridComponentProps, SudokuBoard } from '../models/SudokuGrid';
 import { IAppState } from '../models';
+import Cell from './Cell';
 
 const SudokuGrid: React.FC<GridComponentProps> = () => {
   const sudokuGrid = useSelector((state: IAppState) => state.gridState.grid);
   const originalGrid = useSelector((state: IAppState) => state.gridState.originalGrid);
   const [crow, ccol] = useSelector((state: IAppState) => state.gridState.current);
   const solved = useSelector((state: IAppState) => state.gridState.solveCompleted);
-
-  const getStyles = (value: number, oldValue: number, solved: boolean) => {
-    if (oldValue > 0) return '';
-    if (value > 0 && solved) return 'solved';
-    if (value === 0) return 'pendingsolve';
-    if (value > 0) return 'solving';
-  }
-
-  const createCell = (value: number, oldValue: number, row: number, col: number, currentRow: number, currentCol: number) => {
-    const current = currentRow >= 0 && currentCol>= 0 && row === currentRow && col === currentCol;
-    const styles = getStyles(value, oldValue, solved);
-    return (
-      <div className={`cell ${styles} ${current? 'current' : ''}`}>
-        {value >= 0 ? value : ''}
-      </div>
-    )
-  }
 
   return (
     <div className='grid-container'>
@@ -37,10 +21,7 @@ const SudokuGrid: React.FC<GridComponentProps> = () => {
             {row.map((val, colIdx) => {
               return (
                 <td key={`${rowIdx}-${colIdx}`}>
-                  {createCell(val, originalGrid[rowIdx][colIdx], rowIdx, colIdx, crow, ccol)}
-                  {/* <div className={`cell ${crow === rowIdx && ccol === colIdx ? 'current' : ''}`}>
-                    {val}
-                  </div>                     */}
+                  <Cell value={val} oldValue={originalGrid[rowIdx][colIdx]} row={rowIdx} col={colIdx} currentRow={crow} currentCol={ccol} solved={solved} />
                 </td>
               )
             })}
