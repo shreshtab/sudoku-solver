@@ -6,6 +6,16 @@ export interface GridComponentProps {
   grid?: number[][]
 };
 
+export interface CellComponentProps {
+  value: number,
+  oldValue: number,
+  row: number,
+  col: number,
+  currentRow: number,
+  currentCol: number,
+  solved: boolean
+}
+
 export interface IGridState {
   originalGrid: SudokuBoard,
   grid: SudokuBoard,

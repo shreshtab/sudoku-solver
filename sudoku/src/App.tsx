@@ -1,64 +1,34 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './App.css';
 import SudokuGrid from './components/SudokuGrid'
-import { SolveGrid, ResetGrid } from './actions/gridActions';
-import { IAppState } from './models';
-import SliderInput from './components/SliderInput';
+import { ResetGrid } from './actions/gridActions';
+import ControlPanel from './components/ControlPanel';
 
 const App = () => {
   const dispatch = useDispatch();
-  const solving = useSelector((state: IAppState) => state.gridState.solving);
-  const solveCompleted = useSelector((state: IAppState) => state.gridState.solveCompleted);
 
   useEffect(() => {
     dispatch(ResetGrid());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-  const solveGrid = () => {
-    dispatch(SolveGrid());
-  };
-
-  const resetGrid = () => {
-    dispatch(ResetGrid());
-  }
-
   return (
     <div className="app-container">
       <div>
         <h1 className='title'>Sudoku Solver Visualizer</h1>
+        <h4 className='subtitle'>By Shreshta Balachandar</h4>
       </div>
-
       <div className='container'>
         <div className="row justify-content-center align-items-center">
           <div className="col-md-8">
             <SudokuGrid />
           </div>
           <div className="col-md-4">
-            <div className="control-panel">
-              <div className="row justify-content-evenly">
-                <div className="solve-button col-4 button">
-                  <button type="button" className="btn btn-primary" onClick={() => solveGrid()} disabled={solving || solveCompleted}>Solve</button>
-                </div>
-                <div className="reset-button col-4 button">
-                  <button type="button" className="btn btn-success" onClick={() => resetGrid()} disabled={solving}>Reset</button>
-                </div>
-              </div>
-              <br />
-              <div className="row justify-content-center">
-                <div className='slider-parent col-12'>
-                  <SliderInput />
-                </div>
-                <div className='legend col-12'>
-                  <strong>Speed</strong> (ms)
-                </div>
-              </div>
-            </div>
+            <ControlPanel />
           </div>
         </div>
       </div>
-      
-
     </div>
   );
 }
