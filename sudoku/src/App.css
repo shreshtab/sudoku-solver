@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgb(234, 245, 233);
+  background-color: rgb(250, 248, 238);
 }
 
 .app-container {
@@ -17,6 +17,12 @@ body {
 
 .title {
   text-align: center;
+  color: rgb(119, 110, 101);
+}
+
+.subtitle {
+  text-align: center;
+  color: black;
 }
 
 .grid-container {
@@ -28,7 +34,7 @@ body {
 table {
   margin: 0 auto;
   /* width: 70%; */
-  border: 3px solid gray;
+  border: 3px solid rgb(187, 173, 160);
   border-collapse: collapse;
 }
 
@@ -79,14 +85,13 @@ table {
 .cell.solving {
   border: 1px solid lightgray;
   color: rgb(0, 0, 0);
-  /* background: rgb(255, 255, 255); */
   background: rgb(248, 222, 188);
 }
 
 .cell.solved {
   border: 1px solid lightgray;
   color: rgb(2, 73, 2);
-  background: rgb(172, 247, 172);
+  background: rgb(207, 245, 207);
 }
 
 .cell.current {

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-
-import { GridComponentProps, SudokuBoard } from '../models/SudokuGrid';
+import { GridComponentProps } from '../models/SudokuGrid';
 import { IAppState } from '../models';
 import Cell from './Cell';
 

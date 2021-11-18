@@ -16,8 +16,6 @@ const marks = {
   500: '1ms'
 };
 
-
-
 const SliderInput: React.FC<any> = () => {
 
   const dispatch = useDispatch();
@@ -38,10 +36,10 @@ const SliderInput: React.FC<any> = () => {
         min={1}
         max={500}
         defaultValue={251}
-        railStyle={{ backgroundColor: 'rgb(178, 100, 147)', height: 5 }}
-        dotStyle={{ borderColor: 'purple', backgroundColor: 'green', border: '1px solid black' }}
+        railStyle={{ backgroundColor: 'rgb(143, 122, 102)', height: 5 }}
+        dotStyle={{ borderColor: 'purple', backgroundColor: 'white', border: '1px solid black' }}
         handleStyle={{
-          borderColor: 'red',
+          borderColor: 'gray',
           height: 14,
           width: 14,
           marginLeft: 0,

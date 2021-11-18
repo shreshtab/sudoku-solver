@@ -1,5 +1,9 @@
 # sudoku-solver
 
+### 11/17/21
+
+Another pause. Organized and styled the components a bit better
+
 ### 11/07/21
 
 After a small hiatus, I'm back to work on this! Mobile responsive design is complete, with a couple of small snags which will be resolved soon. Next, will look to refactor components to make them a bit more organized and will also add some unit tests. Thinking both snapshot and integration testing. Unit testing with Redux will be a good thing to learn.
@@ -26,12 +30,13 @@ As someone who enjoyed doing Sudoku puzzles growing up, I was intrigued on how t
 - Puzzles Setup
 - Speed Control
 - Responsive Styling
+- Refactor Components
+  - Move cell/box to a different component
+  - Move control panel into a new component
 
 ### Backlog
 
 - Refactor Components
-  - Move cell/box to a different component
-  - Move control panel into a new component
   - Provide grid as an input to the Sudoku Grid component
 - Unit Tests
 - Flatten Sudoku Grid State
@@ -40,9 +45,10 @@ As someone who enjoyed doing Sudoku puzzles growing up, I was intrigued on how t
 - Other Solving Algorithms
   - Crook's Algo
   - Simulated Annealing
+  - Other...
 
 ## Topics to Write About
 
-- Sudoku Grid State Management
+- Sudoku Grid State Management - Flatten the 2D array
 - RC Slider Styling
 - React + Redux Unit Testing
