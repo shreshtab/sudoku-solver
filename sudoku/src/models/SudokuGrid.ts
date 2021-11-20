@@ -32,7 +32,8 @@ export enum GridActionTypes {
   UPDATE_SOLVE_STATUS = 'UPDATE_SOLVE_STATUS',
   ERROR = 'ERROR',
   SET_CURRENT_BOX_AND_UPDATE = 'SET_CURRENT_BOX_AND_UPDATE',
-  SET_CURRENT_SPEED = 'SET_CURRENT_SPEED'
+  SET_CURRENT_SPEED = 'SET_CURRENT_SPEED',
+  DEFAULT = 'DEFAULT'
 }
 
 export interface ISetGridAction {
@@ -58,7 +59,7 @@ export interface ISetSolveStatus {
 
 export interface ISetCurrentBoxAndUpdate {
   type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE;
-  grid: SudokuBoard;
+  // grid: SudokuBoard;
   current: CurrentBox;
   currentVal: number;
 }
@@ -68,7 +69,11 @@ export interface IErrorAction {
   errorMessage: string;
 }
 
+export interface IDefaultAction {
+  type: GridActionTypes.DEFAULT;
+}
 
 
-export type GridActions = ISetGridAction | ISetCurrentBoxAndUpdate | ISetCurrentSpeed | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction;
+
+export type GridActions = ISetGridAction | ISetCurrentBoxAndUpdate | ISetCurrentSpeed | ISetCurrentBoxAction | ISetSolveStatus | IErrorAction | IDefaultAction;
 
