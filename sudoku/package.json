@@ -24,8 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
+    "test": "react-scripts test",
+    "test:watch": "yarn test -- --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,11 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.16.4",
-    "babel-jest": "^27.3.1",
-    "jest": "^27.3.1",
-    "ts-jest": "^27.0.7"
   }
 }

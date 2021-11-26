@@ -1,5 +1,9 @@
 # sudoku-solver
 
+### 11/26/21
+
+I turned 27 today. Can't believe it! Today I learned that I didn't need to separately install Jest and that it comes built in with RTL! Time to write some tests.
+
 ### 11/17/21
 
 Another pause. Organized and styled the components a bit better
