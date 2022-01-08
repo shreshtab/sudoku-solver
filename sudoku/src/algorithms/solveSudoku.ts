@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { SudokuBoard } from "../models/SudokuGrid";
 import { GridActionTypes } from "../models/SudokuGrid";
-import { store } from '../index';
+import { store } from '../reducers/store';
 
 export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 	// console.log(store.getState().gridState.speed)

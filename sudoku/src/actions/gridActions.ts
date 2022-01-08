@@ -1,8 +1,8 @@
 import { ActionCreator, Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
-import { ISetGridAction, ISetCurrentBoxAndUpdate, ISetCurrentBoxAction, GridActionTypes } from '../models/SudokuGrid';
+import { ISetGridAction, ISetCurrentBoxAndUpdate, GridActionTypes } from '../models/SudokuGrid';
 import { IAppState } from "../models";
-import { SudokuBoard, CurrentBox } from "../models/SudokuGrid";
+import { SudokuBoard } from "../models/SudokuGrid";
 import { solveSudoku } from "../algorithms/solveSudoku";
 import { getPuzzle } from "../utils/utils";
 

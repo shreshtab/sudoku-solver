@@ -6,6 +6,10 @@ Coming back to this after a while. Wrote tests for a reducer a while back, and n
 
 Also update - I got a job offer! Still have a lot to learn so going through this a bit more.
 
+Had an interesting day figuring out the tests. Redux-actions-assertions doesn't seem to work with RTL and while I can use Jest, I'll need to setup the config. However, it's an implementation detail in the end, and I need to focus on app functionlity rather than the implementation details.
+
+Need to refactor a few things now. First, the slider needs to be changed easily. Time to migrate away from RC Slider. Next, I need to design the various test cases.
+
 ### 11/26/21
 
 I turned 27 today. Can't believe it! Today I learned that I didn't need to separately install Jest and that it comes built in with RTL! Time to write some tests.

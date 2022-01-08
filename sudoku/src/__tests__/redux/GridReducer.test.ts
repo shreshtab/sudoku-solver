@@ -1,4 +1,4 @@
-import { board, solved, gridReducer, initialGridState } from "../../reducers/gridReducer";
+import { solved, gridReducer, initialGridState } from "../../reducers/gridReducer";
 import { SudokuBoard, GridActionTypes, ISetGridAction, ISetCurrentBoxAction, ISetCurrentSpeed, ISetSolveStatus, ISetCurrentBoxAndUpdate, IErrorAction } from '../../models/SudokuGrid';
 
 const newGridAction: ISetGridAction = {
@@ -24,8 +24,8 @@ const updateSolveStatusAction: ISetSolveStatus = {
 
 const updateCurrentBoxValAction: ISetCurrentBoxAndUpdate = {
   type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE,
-  current: [0,0],
-  currentVal: 1
+  current: [0,1],
+  currentVal: 4
 }
 
 const updateErrorMessageAction: IErrorAction = {
@@ -72,20 +72,20 @@ describe('grid reducer', () => {
   it('updates current box and value in the current box', () => {
     
     const updatedBoard: SudokuBoard = [
-      [1, 4, 3, 0, 8, 0, 2, 5, 0],
-      [6, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 1, 0, 9, 4],
-      [9, 0, 0, 0, 0, 4, 0, 7, 0],
-      [0, 0, 0, 6, 0, 8, 0, 0, 0],
-      [0, 1, 0, 2, 0, 0, 0, 0, 3],
-      [8, 2, 0, 5, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 5],
-      [0, 3, 4, 0, 9, 0, 7, 1, 0]
+      [1, 4, 3, 9, 8, 6, 2, 5, 7],
+      [6, 7, 9, 4, 2, 0, 3, 8, 1],
+      [2, 8, 5, 7, 3, 1, 6, 9, 4],
+      [9, 6, 2, 3, 5, 4, 1, 7, 8],
+      [3, 5, 7, 6, 1, 8, 9, 4, 2],
+      [4, 1, 8, 2, 7, 9, 5, 0, 3],
+      [8, 2, 1, 5, 6, 7, 4, 3, 9],
+      [7, 9, 6, 0, 4, 3, 8, 2, 5],
+      [5, 3, 4, 8, 9, 2, 7, 1, 6]
     ];
 
     expect(gridReducer(initialGridState, updateCurrentBoxValAction)).toEqual({
       ...initialGridState,
-      current: [0,0],
+      current: [0,1],
       grid: updatedBoard
     })
   });
