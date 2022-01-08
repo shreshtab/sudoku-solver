@@ -1,5 +1,11 @@
 # sudoku-solver
 
+### 1/8/22
+
+Coming back to this after a while. Wrote tests for a reducer a while back, and now doing a bit more integrated tests. Will use redux-actions-assertions for these and then use RTL for E2E.
+
+Also update - I got a job offer! Still have a lot to learn so going through this a bit more.
+
 ### 11/26/21
 
 I turned 27 today. Can't believe it! Today I learned that I didn't need to separately install Jest and that it comes built in with RTL! Time to write some tests.

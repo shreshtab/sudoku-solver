@@ -34,13 +34,3 @@ export const ResetGrid: ActionCreator<ThunkAction<Promise<any>, IAppState, null,
     }
   }
 }
-
-export const SetAndUpdateCurrentBox: ActionCreator<ThunkAction<Promise<any>, IAppState, null, ISetCurrentBoxAction>> = (currentBox: CurrentBox, boxVal: number) => {
-  return async (dispatch: Dispatch) => {
-    try {
-      dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: currentBox, currentVal: boxVal})
-    } catch (err) {
-      dispatch({type: GridActionTypes.ERROR, errorMessage: `Unable to update grid. Error: ${err}`});
-    }
-  }
-}
