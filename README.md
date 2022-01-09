@@ -10,6 +10,8 @@ Had an interesting day figuring out the tests. Redux-actions-assertions doesn't 
 
 Need to refactor a few things now. First, the slider needs to be changed easily. Time to migrate away from RC Slider. Next, I need to design the various test cases.
 
+After messing around for a bit, RTL is awesome, but spying on functions and other jest functions have some quirks that have made it tricky to use for my use cases. So I will make changes to the app so that there is a status - Grid reset, solved, etc. - that would not change even if I moved from Redux to Context.
+
 ### 11/26/21
 
 I turned 27 today. Can't believe it! Today I learned that I didn't need to separately install Jest and that it comes built in with RTL! Time to write some tests.

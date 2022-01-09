@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import { SudokuBoard } from "../models/SudokuGrid";
 import { GridActionTypes } from "../models/SudokuGrid";
 import { store } from '../reducers/store';
+import { sleep } from '../utils/utils';
 
 export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 	// console.log(store.getState().gridState.speed)
@@ -55,5 +56,6 @@ const isValid = (value: number, row: number, column: number, board: SudokuBoard)
 	return true;
 }
 
-export const sleep = async (ms: number): Promise<any> =>
-  new Promise(r => setTimeout(r, ms));
+
+// export const sleep = async (ms: number): Promise<any> =>
+//   new Promise(resolve => setTimeout(resolve, ms));

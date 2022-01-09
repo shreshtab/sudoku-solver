@@ -12,7 +12,7 @@ export const SolveGrid: ActionCreator<ThunkAction<Promise<any>, IAppState, null,
       const state = getState();
       dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: true, solveCompleted: false});
       if (await solveSudoku(state.gridState.grid, dispatch)) {
-        console.log("Solved");
+        // console.log("Solved");
         dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: false, solveCompleted: true});
         dispatch({type: GridActionTypes.SET_CURRENT_BOX, current: [-1, -1]});
       }
