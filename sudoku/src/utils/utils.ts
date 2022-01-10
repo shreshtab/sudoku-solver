@@ -42,3 +42,6 @@ export const getPuzzle = () => {
 export const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * max)
 }
+
+export const sleep = async (ms: number): Promise<any> =>
+  new Promise(resolve => setTimeout(resolve, ms));

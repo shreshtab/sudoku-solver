@@ -1,30 +1,23 @@
-import { Dispatch } from 'redux';
 import { SudokuBoard } from "../models/SudokuGrid";
-import { GridActionTypes } from "../models/SudokuGrid";
-import { store } from '../reducers/store';
-import { sleep } from '../utils/utils';
 
-export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
+export const solveSudoku = (board: SudokuBoard) => {
 	// console.log(store.getState().gridState.speed)
 	for (let i = 0; i < board.length; i++) {
 		for (let j = 0; j < board[0].length; j++) {
 			if (board[i][j] === 0) {
-				// Dispath current square				
+				// Dispath current square
 				for (let k = 1; k <= 9; k++) {
 					if (isValid(k, i, j, board)) {
 						// If valid, assign to board[i][j] and dispatch
 						board[i][j] = k;
 						// let current = [i,j]
 						// Get wait time from store
-						dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: [i, j], currentVal: k})
-						await sleep(store.getState().gridState.speed)
 						// if solveSudoku, return true
-						if (await solveSudoku(board, dispatch)) {
+						if (solveSudoku(board)) {
 							return true
 						} else {
 							// else set board[i][j] to 0 and dispatch
 							board[i][j] = 0;
-							dispatch({type: GridActionTypes.SET_CURRENT_BOX_AND_UPDATE, current: [i, j], currentVal: 0})
 						}
 					}
 				}
@@ -33,7 +26,7 @@ export const solveSudoku = async (board: SudokuBoard, dispatch: Dispatch) => {
 		}
 	}
 	return true
-}
+};
 
 const isValid = (value: number, row: number, column: number, board: SudokuBoard) => {
 	// Check if value is present in row
@@ -55,7 +48,3 @@ const isValid = (value: number, row: number, column: number, board: SudokuBoard)
 	}
 	return true;
 }
-
-
-// export const sleep = async (ms: number): Promise<any> =>
-//   new Promise(resolve => setTimeout(resolve, ms));
