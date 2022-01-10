@@ -23,15 +23,14 @@ yarn start
 
 ### In Progress
 
-- Unit/Integration Tests
-- Notistack Implementation
+- Research options and replace RC Slider
 
 ### Backlog
 
+- Live Deployment
 - Refactor Components
   - Provide grid as an input to the Sudoku Grid component
 - Flatten Sudoku Grid State
-- Replace RC Slider
 - Overall Styling and Color
 - Sudoku Grid Generator
 - Other Solving Algorithms
@@ -50,3 +49,5 @@ yarn start
 - Refactor Components
   - Move cell/box to a different component
   - Move control panel into a new component
+- React-Toastify Implementation
+- Unit/Integration Tests
