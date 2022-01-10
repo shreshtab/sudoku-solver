@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Import Slider input, solve button, reset button
@@ -11,6 +11,19 @@ const ControlPanel: React.FC<any> = () => {
   const dispatch = useDispatch();
   const solving = useSelector((state: IAppState) => state.gridState.solving);
   const solveCompleted = useSelector((state: IAppState) => state.gridState.solveCompleted);
+
+  useEffect(() => {
+
+    if (!solving && solveCompleted) {
+      // Enqueue snackbar for solve completed
+
+    }
+
+    if (!solving && !solveCompleted) {
+      // Enqueue snackbar for reset
+    }
+
+  }, [solveCompleted, solving])
 
   const solveGrid = () => {
     dispatch(SolveGrid());
