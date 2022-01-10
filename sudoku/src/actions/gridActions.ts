@@ -1,5 +1,7 @@
 import { ActionCreator, Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
+import { toast } from 'react-toastify';
+
 import { ISetGridAction, ISetCurrentBoxAndUpdate, GridActionTypes } from '../models/SudokuGrid';
 import { IAppState } from "../models";
 import { SudokuBoard } from "../models/SudokuGrid";
@@ -15,6 +17,7 @@ export const SolveGrid: ActionCreator<ThunkAction<Promise<any>, IAppState, null,
         // console.log("Solved");
         dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: false, solveCompleted: true});
         dispatch({type: GridActionTypes.SET_CURRENT_BOX, current: [-1, -1]});
+        toast.success('Solve completed!')
       }
     } catch (err) {
         dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: false, solveCompleted: true});
@@ -29,6 +32,9 @@ export const ResetGrid: ActionCreator<ThunkAction<Promise<any>, IAppState, null,
       const newPuzzle: SudokuBoard = getPuzzle();
       dispatch({type: GridActionTypes.SET_GRID, grid: newPuzzle});
       dispatch({type: GridActionTypes.UPDATE_SOLVE_STATUS, solving: false, solveCompleted: false});
+      toast.info('Grid has been reset!', {
+        toastId: 'reset'
+      });
     } catch (err) {
         dispatch({type: GridActionTypes.ERROR, errorMessage: `Unable to reset puzzle. Error: ${err}`});
     }

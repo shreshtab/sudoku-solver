@@ -4,8 +4,13 @@
   padding: 0;
 }
 
+:root {
+  --toastify-font-family: 'Franklin Gothic Medium';
+}
+
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium';
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   background-color: rgb(250, 248, 238);
 }
 
