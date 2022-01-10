@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
 import SudokuGrid from './components/SudokuGrid'
 import { ResetGrid } from './actions/gridActions';
@@ -29,6 +32,18 @@ const App = () => {
           </div>
         </div>
       </div>
+      <ToastContainer 
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        limit={3}
+      />
     </div>
   );
 }

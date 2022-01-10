@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 // Import Slider input, solve button, reset button
 import { SolveGrid, ResetGrid } from '../actions/gridActions';
@@ -13,16 +14,10 @@ const ControlPanel: React.FC<any> = () => {
   const solveCompleted = useSelector((state: IAppState) => state.gridState.solveCompleted);
 
   useEffect(() => {
-
     if (!solving && solveCompleted) {
       // Enqueue snackbar for solve completed
-
+      toast.success('Solve completed!')
     }
-
-    if (!solving && !solveCompleted) {
-      // Enqueue snackbar for reset
-    }
-
   }, [solveCompleted, solving])
 
   const solveGrid = () => {
@@ -31,6 +26,9 @@ const ControlPanel: React.FC<any> = () => {
 
   const resetGrid = () => {
     dispatch(ResetGrid());
+    toast.info('Grid has been reset!', {
+      toastId: 'reset'
+    });
   }
 
   return (
