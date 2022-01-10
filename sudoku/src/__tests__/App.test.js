@@ -5,28 +5,11 @@ import { act } from 'react-dom/test-utils';
 import { store } from '../reducers/store';
 import App from '../App';
 import { GridActionTypes } from '../models/SudokuGrid';
-import * as utils from '../utils/utils';
 import { sleep } from '../utils/utils';
-import { debug } from "console";
-
-const board = [
-  [0, 4, 3, 0, 8, 0, 2, 5, 0],
-  [6, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 9, 4],
-  [9, 0, 0, 0, 0, 4, 0, 7, 0],
-  [0, 0, 0, 6, 0, 8, 0, 0, 0],
-  [0, 1, 0, 2, 0, 0, 0, 0, 3],
-  [8, 2, 0, 5, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 5],
-  [0, 3, 4, 0, 9, 0, 7, 1, 0]
-];
 
 const Wrapper = ({ children }) => (
 	<Provider store={store}>{children}</Provider>
 );
-
-// const getPuzzleSpy = jest.spyOn(utils, 'getPuzzle');
-// getPuzzleSpy.mockReturnValue(board)
 
 describe('Sudoku Solver App', () => {
 
@@ -40,19 +23,26 @@ describe('Sudoku Solver App', () => {
     const title = await screen.findByText('Sudoku Solver Visualizer');
     const solveButton = screen.getByText('Solve');
     const resetButton = screen.getByText('Reset');
-    
+    const gridCells = screen.getAllByRole('cell');
+    const rows = screen.getAllByRole('row');
+    const parsedGridCells = gridCells.map(cell => Number(cell.innerHTML.split('>')[1].split('<')[0]))
+    const zeroGridCells = parsedGridCells.filter(cell => cell === 0);
 
     expect(title).toBeTruthy();
     expect(solveButton).toBeTruthy();
     expect(resetButton).toBeTruthy();
-
-  })
+    expect(parsedGridCells.length).toBe(81);
+    expect(zeroGridCells.length).toBeGreaterThan(0);
+    expect(rows.length).toBe(9);
+  });
 
   it('should reset grid when clicked', async () => {
 
     const resetButton = screen.getByText('Reset');
 
-    fireEvent.click(resetButton)
+    fireEvent.click(resetButton);
+
+    const resetMessage = await screen.findByText('Grid has been reset')
     await act(() => sleep(5000));
 
   });
