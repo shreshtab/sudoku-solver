@@ -2,11 +2,11 @@
 
 ## Installation Instructions
 
-`
+```
 // Clone without SSH
 git clone https://github.com/shreshtab/sudoku-solver.git
 
-// Or with SSH
+// Clone with SSH
 git clone git@github.com:shreshtab/sudoku-solver.git
 
 // Navigate to client directory
@@ -17,7 +17,7 @@ yarn
 
 // Start Application
 yarn start
-`
+````
 
 ## Features
 
