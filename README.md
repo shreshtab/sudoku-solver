@@ -27,7 +27,6 @@ yarn start
 
 ### Backlog
 
-- Live Deployment
 - Refactor Components
   - Provide grid as an input to the Sudoku Grid component
 - Flatten Sudoku Grid State
@@ -51,3 +50,4 @@ yarn start
   - Move control panel into a new component
 - React-Toastify Implementation
 - Unit/Integration Tests
+- Live Deployment
