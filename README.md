@@ -33,8 +33,7 @@ yarn start
 - Overall Styling and Color
 - Sudoku Grid Generator
 - Other Solving Algorithms
-  - Crook's Algo
-  - Simulated Annealing
+  - AC3 with Recursive Backtracking
   - Others...
 
 ### Completed
